@@ -1,14 +1,6 @@
-# Sign Language Detector using Digital Image Processing
+# Indian Sign Language Recognition using Digital Image Processing
 
-A real-time Indian Sign Language (ISL) recognition system built using Python, OpenCV, MediaPipe, and Machine Learning. The project detects hand landmarks from a webcam, extracts meaningful features, and predicts the corresponding ISL alphabet in real time.
-
----
-
-## Project Overview
-
-This project is a Digital Image Processing (DIP) application that recognizes Indian Sign Language (ISL) gestures in real time using image preprocessing, hand landmark extraction, and machine learning. The system captures hand gestures through a webcam, applies multiple image enhancement techniques, extracts hand landmarks, and predicts the corresponding ISL alphabet.
-
-The project demonstrates the application of Digital Image Processing techniques to improve gesture recognition accuracy under different lighting and environmental conditions.
+A real-time Indian Sign Language (ISL) recognition system built with **Python**, **Digital Image Processing**, **MediaPipe**, and **Machine Learning**. The application detects hand landmarks from a webcam and predicts the corresponding ISL alphabet in real time.
 
 ---
 
@@ -17,60 +9,54 @@ The project demonstrates the application of Digital Image Processing techniques 
 - Real-time ISL alphabet recognition
 - Hand landmark detection using MediaPipe
 - Random Forest based gesture classification
-- Image preprocessing for improved robustness
-- Reference image displayed alongside webcam feed
-- Complete training pipeline included
-- Privacy-friendly repository (no personal images)
-  
----
-
-## Technologies Used
-
-- Python
-- Digital Image Processing (DIP)
-- OpenCV
-- MediaPipe
-- NumPy
-- Scikit-learn
-- Pickle
+- Image preprocessing for improved detection accuracy
+- Side-by-side ISL reference image
+- Complete dataset creation and training pipeline
 
 ---
 
-## Project Structure
+## Sample Output
 
-```text
-sign-language-detector/
-├── collect_images.py
-├── create_dataset.py
-├── train_classifier.py
-├── inference_classifier.py
-├── data.pickle
-├── model.p
-├── ref.jpg
-├── requirements.txt
-└── README.md
+### Letter F
+
+![Letter A](Screenshots/Sample_Output_F.png)
+
+### Letter H
+
+![Letter B](Screenshots/Sample_Output_H.png)
+
+### Letter W
+
+![Letter C](Screenshots/Sample_Output_W.png)
+
+### Letter Y
+
+![Letter D](Screenshots/Sample_Output_Y.png)
+
+---
+
+# Getting Started
+
+## Clone the repository
+
+```bash
+git clone https://github.com/ShruthilayaAV/sign-language-detector.git
+cd sign-language-detector
 ```
 
----
-
-## Workflow
-
-1. Collect gesture images using `collect_images.py`
-2. Generate landmark dataset using `create_dataset.py`
-3. Train the classifier using `train_classifier.py`
-4. Run `inference_classifier.py` for real-time prediction
-
----
-
-## How to Run
-
-### Install dependencies
+## Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Train the model
+---
+
+# Running the Project
+
+### If you already have `data.pickle`
+
+Train the classifier:
 
 ```bash
 python train_classifier.py
@@ -82,45 +68,119 @@ This generates:
 model.p
 ```
 
-### Start real-time recognition
+Start real-time prediction:
 
 ```bash
 python inference_classifier.py
 ```
 
-The webcam opens and displays:
+The webcam will open and display:
 
-- Live hand detection
+- Live camera feed
+- Hand landmarks
 - Predicted ISL alphabet
-- Reference ISL image for comparison
+- Reference ISL image
 
-To exit the application, press **Ctrl + C** in the terminal.
+To stop the application:
+
+```
+Ctrl + C
+```
 
 ---
 
-## Image Preprocessing
+## Training Your Own Dataset
 
-The project improves recognition accuracy using several preprocessing techniques:
+Want to train your own model?
+
+### Step 1 — Capture Images
+
+```bash
+python collect_images.py
+```
+
+### Step 2 — Create the Dataset
+
+```bash
+python create_dataset.py
+```
+
+This generates:
+
+```
+data.pickle
+```
+
+### Step 3 — Train the Model
+
+```bash
+python train_classifier.py
+```
+
+This generates:
+
+```
+model.p
+```
+
+### Step 4 — Start Prediction
+
+```bash
+python inference_classifier.py
+```
+
+---
+
+## How It Works
+
+1. Captures frames from the webcam.
+2. Applies image preprocessing techniques to improve image quality.
+3. Detects hand landmarks using MediaPipe.
+4. Extracts landmark features.
+5. Uses a trained Random Forest classifier to predict the ISL alphabet.
+6. Displays the prediction alongside an ISL reference image.
+
+---
+
+## Technologies
+
+- Python
+- Digital Image Processing (DIP)
+- OpenCV
+- MediaPipe
+- NumPy
+- Scikit-learn
+- Pickle
+
+---
+
+## Image Processing Techniques
+
+The recognition pipeline applies multiple enhancement techniques, including:
 
 - Histogram Equalization
 - CLAHE
 - Gaussian Blur
 - Median Blur
 - Bilateral Filtering
-- Brightness Adjustment
-- Contrast Enhancement
+- Brightness & Contrast Enhancement
 - Gamma Correction
-- Sharpening Filter
+- Sharpening
 - Edge Enhancement
 
 ---
 
-## Digital Image Processing Pipeline
+## Future Improvements
 
-- Image Collection
-- Hand Landmark Extraction
-- Dataset Creation
-- Random Forest Training
-- Real-Time Prediction
+- Word-level sign recognition
+- Sentence formation
+- Deep learning-based classification
+- Dynamic gesture recognition
+- Speech synthesis
+- Web application deployment
 
 ---
+
+## Author
+
+**Shruthilaya A V**
